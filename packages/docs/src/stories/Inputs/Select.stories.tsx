@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Select } from '@istic-ui/react';
+import { Select, Text } from '@istic-ui/react';
 
 Select.displayName = 'Select';
 
@@ -63,6 +63,11 @@ export const Default: StoryObj = {
   args: {
     size: 'xs',
     searchable: true,
+    tooltip: (
+      <div className="bg-black p-3">
+        <Text color="text-white">Displayed item</Text>
+      </div>
+    ),
     clearable: false,
     onType: (a) => console.log(a),
     filterBySearchable: false,
