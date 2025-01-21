@@ -96,7 +96,7 @@ const DateInput: React.FC<DateInputProps> = ({
   };
 
   const inputClasses = clsx(
-    'border outline-none shadow-noneflex justify-between items-center gap-2.5 cursor-pointer',
+    'border outline-none shadow-none flex justify-between items-center gap-2.5 cursor-pointer',
     {
       [`rounded-input-${size}`]: true,
       'font-default font-normal text-neutral-800 leading-5 placeholder-neutral-600':

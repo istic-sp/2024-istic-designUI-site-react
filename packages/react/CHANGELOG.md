@@ -1,5 +1,41 @@
 # @istic-ui/react
 
+## 2.0.10
+
+### Patch Changes
+
+- Adjust dateInput styles
+
+## 2.0.9
+
+### Patch Changes
+
+- Add id for Select options
+
+## 2.0.8
+
+### Patch Changes
+
+- Adjust Select defaultValue property
+
+## 2.0.7
+
+### Patch Changes
+
+- Adjust Select defaultValue property
+
+## 2.0.6
+
+### Patch Changes
+
+- Adjust Select component
+
+## 2.0.5
+
+### Patch Changes
+
+- Add new portal for Select Dropdown
+
 ## 2.0.4
 
 ### Patch Changes
