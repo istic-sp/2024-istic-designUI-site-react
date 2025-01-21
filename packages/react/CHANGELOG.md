@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.11
+
+### Patch Changes
+
+- Add tooltip property to Select
+
 ## 2.0.10
 
 ### Patch Changes

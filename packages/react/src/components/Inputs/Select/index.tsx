@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import clsx from 'clsx';
 import { Icon, icons } from '../../Icons';
 import { Loader } from '../../Loader';
+import { Tooltip } from '../../Tooltip';
 
 interface Option {
   label: string;
@@ -33,6 +34,7 @@ interface SelectProps {
   isLoading?: boolean;
   pickerHeight?: string;
   size?: 'xs' | 'lg';
+  tooltip?: React.ReactNode;
 }
 
 const Select = forwardRef<HTMLInputElement, SelectProps>(
@@ -57,6 +59,7 @@ const Select = forwardRef<HTMLInputElement, SelectProps>(
       isLoading,
       pickerHeight = '30dvh',
       size = 'xs',
+      tooltip,
       ...rest
     },
     ref,
@@ -187,7 +190,7 @@ const Select = forwardRef<HTMLInputElement, SelectProps>(
       },
     );
     const rightSectionClasses = clsx(
-      'flex items-center justify-center h-full pr-3',
+      'flex items-center justify-center h-full pr-3 gap-2',
     );
     const pickerClasses = clsx(
       'absolute mt-1 flex flex-col w-full top-full z-50',
@@ -219,6 +222,17 @@ const Select = forwardRef<HTMLInputElement, SelectProps>(
             className={rightSectionClasses}
             onClick={() => setShowOptions(!showOptions)}
           >
+            {tooltip && (
+              <Tooltip
+                onHoverItem={tooltip ? tooltip : ''}
+                align="top"
+                position="left"
+              >
+                <div>
+                  <Icon name="question" size={20} />
+                </div>
+              </Tooltip>
+            )}
             {rightSection ? (
               rightSection
             ) : isLoading ? (
