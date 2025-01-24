@@ -236,7 +236,7 @@ const Select = forwardRef<HTMLInputElement, SelectProps>(
             {rightSection ? (
               rightSection
             ) : isLoading ? (
-              <Loader size="xs" color="primary-border" width="slim" />
+              <Loader size="xs" color="primary-border" />
             ) : clearable && searchQuery.length ? (
               <button onClick={(e) => clearSelect(e)}>
                 <Icon name={'close'} {...iconProps} />

@@ -41,6 +41,7 @@ const Button = ({
     [`rounded-button-${size}`]: true,
     'btn-grow': grow,
     'disabled:cursor-not-allowed': true,
+    'cursor-not-allowed': isLoading,
     ['px-3 py-2']: size === 'xs' || size === 'sm',
     ['px-6 py-4']: size === 'md' || size === 'lg' || size === 'xl',
     [gapClasses]: true,
@@ -64,7 +65,23 @@ const Button = ({
     <button
       {...rest}
       className={buttonClasses}
-      disabled={disabled || isLoading}
+      disabled={disabled}
+      onClick={(e) => {
+        if (isLoading) {
+          e.preventDefault();
+          e.stopPropagation();
+        } else {
+          rest.onClick && rest.onClick(e);
+        }
+      }}
+      onSubmit={(e) => {
+        if (isLoading) {
+          e.preventDefault();
+          e.stopPropagation();
+        } else {
+          rest.onSubmit && rest.onSubmit(e);
+        }
+      }}
     >
       {isLoading ? (
         <>

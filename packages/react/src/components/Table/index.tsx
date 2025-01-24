@@ -157,7 +157,7 @@ const Table = <T,>({
             <div className="h-full flex flex-col items-center justify-center">
               {isLoading && (
                 <div className={loadingClasses}>
-                  <Loader size="xl" width="slim" color="primary-border" />
+                  <Loader size="xl" color="primary-border" />
                 </div>
               )}
               {isEmpty && !isLoading && (

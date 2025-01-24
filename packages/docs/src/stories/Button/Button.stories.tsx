@@ -50,7 +50,9 @@ export const Filled: StoryObj = {
     label: 'Text Button',
     grow: false,
     disabled: false,
-    isLoading: false,
+    onClick: () => {
+      console.log('Button clicked');
+    },
   },
 };
 export const Outline: StoryObj = {
