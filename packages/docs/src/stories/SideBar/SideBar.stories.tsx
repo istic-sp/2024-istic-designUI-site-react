@@ -17,7 +17,7 @@ const meta: Meta<typeof SideBar> = {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           alignItems: 'center',
         }}
       >
@@ -30,6 +30,7 @@ const meta: Meta<typeof SideBar> = {
 export default meta;
 export const Default: StoryObj = {
   args: {
+    padding: 0,
     items: [
       {
         title: 'First Items',
@@ -73,9 +74,11 @@ export const Default: StoryObj = {
       },
     ],
     logo: (
-      <Heading level="h2" weight="bold">
-        Company
-      </Heading>
+      <img
+        src="https://img.freepik.com/free-vector/butterfly-colorful-logo-template_361591-1587.jpg"
+        width={100}
+        height={50}
+      />
     ),
     footer: <div>Footer</div>,
   },

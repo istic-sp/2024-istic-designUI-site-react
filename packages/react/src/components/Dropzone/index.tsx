@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import clsx from 'clsx';
 import { Loader } from '../Loader';
 import { Button } from '../Buttons/Button';
@@ -95,7 +95,7 @@ const Dropzone: React.FC<DropzoneProps> = ({
       />
       {isLoading ? (
         <div className="flex flex-col items-center gap-2">
-          <Loader color="primary-border" size="xl" width="slim" />
+          <Loader color="primary-border" size="xl" />
           <h4>{loadingMessage}</h4>
         </div>
       ) : (

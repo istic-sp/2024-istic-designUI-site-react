@@ -1,5 +1,17 @@
 # @istic-ui/react
 
+## 2.0.13
+
+### Patch Changes
+
+- Add collapse feature to SideBar
+
+## 2.0.12
+
+### Patch Changes
+
+- Adjust Loader in Table, Select, Dropzone and AccordionTable, also adjust Button color when isLoading
+
 ## 2.0.11
 
 ### Patch Changes
