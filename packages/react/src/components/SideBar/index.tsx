@@ -154,16 +154,16 @@ const SideBar = ({
         <div className="flex justify-center items-center border-t-[0.5px] py-4 mt-4">
           <button
             onClick={toggleSidebar}
-            className="p-2 bg-transparent hover:primary-bg rounded-full"
+            className="p-2 bg-transparent hover:text-white hover:primary-bg w-full rounded-[5px]"
           >
             {isCollapsed ? (
-              <div className="flex justify-center items-center gap-4 flex-row">
-                <Icon name="arrow-right-double" size={20} />
+              <div className="flex justify-center items-center gap-4 flex-row text-inherit">
+                <Icon name="arrow-right-double" size={20} color="inherit" />
               </div>
             ) : (
-              <div className="flex justify-center items-center gap-4 flex-row">
-                <Icon name="arrow-left-double" size={20} />
-                <Text size="sm" color="text-neutral-800" weight="medium">
+              <div className="flex justify-center items-center gap-4 flex-row text-inherit">
+                <Icon name="arrow-left-double" size={20} color="inherit" />
+                <Text size="sm" color="inherit" weight="medium">
                   Recolher Menu
                 </Text>
               </div>
