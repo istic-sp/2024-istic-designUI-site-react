@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.17
+
+### Patch Changes
+
+- Improve spacing into Sidebar
+
 ## 2.0.16
 
 ### Patch Changes
