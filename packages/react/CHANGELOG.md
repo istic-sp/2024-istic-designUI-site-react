@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.13
+
+### Patch Changes
+
+- Add collapse feature to SideBar
+
 ## 2.0.12
 
 ### Patch Changes
