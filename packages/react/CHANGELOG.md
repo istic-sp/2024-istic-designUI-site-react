@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.18
+
+### Patch Changes
+
+- Add transition to Sidebar
+
 ## 2.0.17
 
 ### Patch Changes
