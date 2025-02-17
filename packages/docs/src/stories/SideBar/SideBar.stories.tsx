@@ -19,6 +19,7 @@ const meta: Meta<typeof SideBar> = {
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center',
+          height: '100vh',
         }}
       >
         <Story />
@@ -30,7 +31,8 @@ const meta: Meta<typeof SideBar> = {
 export default meta;
 export const Default: StoryObj = {
   args: {
-    padding: 0,
+    padding: 4,
+    buttonsRadius: 0,
     items: [
       {
         title: 'First Items',
