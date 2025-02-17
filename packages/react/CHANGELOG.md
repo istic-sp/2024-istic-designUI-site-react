@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.15
+
+### Patch Changes
+
+- Improve SideBar collapse style"
+
 ## 2.0.14
 
 ### Patch Changes
