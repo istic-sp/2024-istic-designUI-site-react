@@ -150,7 +150,7 @@ const SideBar = ({
             }
       }
       className={clsx(
-        'h-full bg-white flex flex-col justify-between transition-[width] duration-300',
+        'h-full bg-white flex flex-col justify-between  transition-all delay-150 duration-300',
       )}
     >
       <div>
