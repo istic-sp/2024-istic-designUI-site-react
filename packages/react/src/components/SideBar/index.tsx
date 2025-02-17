@@ -41,7 +41,7 @@ const SubNav = ({
   isCollapsed,
   radius,
 }: SubNav) => (
-  <div className={clsx('flex flex-col gap-y-2')}>
+  <div className={clsx('flex flex-col gap-b-2')}>
     {!isCollapsed && (
       <Text size="xs" color="text-neutral-600" weight="regular">
         {title}
@@ -150,7 +150,7 @@ const SideBar = ({
             }
       }
       className={clsx(
-        'h-screen bg-white flex flex-col justify-between transition-[width] duration-300',
+        'h-full bg-white flex flex-col justify-between transition-[width] duration-300',
       )}
     >
       <div>

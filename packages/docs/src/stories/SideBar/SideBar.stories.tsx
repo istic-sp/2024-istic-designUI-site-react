@@ -19,6 +19,7 @@ const meta: Meta<typeof SideBar> = {
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center',
+          height: '100vh',
         }}
       >
         <Story />
