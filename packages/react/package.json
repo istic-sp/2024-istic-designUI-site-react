@@ -1,7 +1,7 @@
 {
   "name": "@istic-ui/react",
   "description": "",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c"

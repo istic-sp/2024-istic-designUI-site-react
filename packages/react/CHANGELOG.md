@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.16
+
+### Patch Changes
+
+- Improve Sidebar style
+
 ## 2.0.15
 
 ### Patch Changes
