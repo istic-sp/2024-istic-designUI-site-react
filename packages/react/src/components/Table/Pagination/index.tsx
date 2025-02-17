@@ -58,7 +58,7 @@ const Pagination: React.FC<IPagination> = ({ pagination }) => {
       />
       {showingPages.map((page, index) => {
         return (
-          <>
+          <React.Fragment key={index}>
             <PaginationButton
               key={String(index) + String(page)}
               active={page === pageCurrent}
@@ -76,7 +76,7 @@ const Pagination: React.FC<IPagination> = ({ pagination }) => {
                   ))}
                 </div>
               )}
-          </>
+          </React.Fragment>
         );
       })}
       <PaginationButton

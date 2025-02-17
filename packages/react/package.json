@@ -1,7 +1,7 @@
 {
   "name": "@istic-ui/react",
   "description": "",
-  "version": "2.0.4",
+  "version": "2.0.13",
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c"
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.2",
