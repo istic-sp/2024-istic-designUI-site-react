@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.19
+
+### Patch Changes
+
+- Add collapseText property to Sidebar
+
 ## 2.0.18
 
 ### Patch Changes
