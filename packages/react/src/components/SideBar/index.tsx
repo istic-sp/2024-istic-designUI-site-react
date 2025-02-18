@@ -1,117 +1,22 @@
-import React, { useState, ReactElement, ReactNode } from 'react';
+import React, { useState, ReactNode } from 'react';
 import clsx from 'clsx';
 import { Text } from '../Typography/Text';
 import { Icon } from '../Icons';
-
-interface NavSubItem {
-  label: string;
-  path: string;
-  icon: ReactElement;
-  notification?: number;
-}
-
-interface NavItem {
-  title: string;
-  subItems: NavSubItem[];
-  radius?: string;
-}
-
-interface SubNav extends NavItem {
-  activeItem: string;
-  isCollapsed: boolean;
-  radius: string;
-}
+import { NavItem, NavSubItem } from './SubNav/NavLink';
+import { SubNav } from './SubNav';
 
 interface SideBarProps {
-  logo?: ReactNode;
   activeItem: string;
   items: NavItem[];
+  logo?: ReactNode;
   footer?: ReactNode;
   width?: string | number;
   padding?: string | number;
   buttonsRadius?: string;
+  collapseText?: string;
   isCollapsed?: boolean;
   onToggleCollapse?: (collapsed: boolean) => void;
 }
-
-const SubNav = ({
-  title,
-  subItems,
-  activeItem,
-  isCollapsed,
-  radius,
-}: SubNav) => (
-  <div className={clsx('flex flex-col gap-b-2')}>
-    {!isCollapsed && (
-      <Text size="xs" color="text-neutral-600" weight="regular">
-        {title}
-      </Text>
-    )}
-    {subItems.map((subItem, index) => (
-      <NavLink
-        radius={radius}
-        key={index}
-        subItem={subItem}
-        activeItem={activeItem}
-        isCollapsed={isCollapsed}
-      />
-    ))}
-  </div>
-);
-
-const NavLink = ({
-  subItem,
-  activeItem,
-  isCollapsed,
-  radius,
-}: {
-  subItem: NavSubItem;
-  activeItem: string;
-  isCollapsed: boolean;
-  radius: string;
-}) => {
-  const isActive = activeItem === subItem.path;
-  const linkClasses = clsx(
-    'flex w-full flex-row items-center gap-x-2 p-2',
-    'transition-colors duration-150 ease-in-out',
-    'hover:text-white hover:primary-bg',
-    {
-      'bg-transparent text-neutral-800': !isActive,
-      'primary-bg text-white': isActive,
-    },
-  );
-
-  return (
-    <a
-      className={linkClasses}
-      href={subItem.path}
-      style={{
-        borderRadius: radius,
-      }}
-    >
-      <div
-        className="flex w-full flex-row gap-x-2"
-        style={{
-          justifyContent: isCollapsed ? 'center' : 'flex-start',
-        }}
-      >
-        {React.cloneElement(subItem.icon, { color: 'inherit' })}
-        {!isCollapsed && (
-          <Text size="sm" color="inherit" weight="regular">
-            {subItem.label}
-          </Text>
-        )}
-      </div>
-      {!!subItem.notification && !isCollapsed && (
-        <div className="rounded-full bg-error flex items-center justify-center px-[5px]">
-          <Text size="xs" color="text-white">
-            {subItem.notification}
-          </Text>
-        </div>
-      )}
-    </a>
-  );
-};
 
 const SideBar = ({
   logo,
@@ -122,6 +27,7 @@ const SideBar = ({
   padding = '4px',
   buttonsRadius = '5px',
   isCollapsed: controlledCollapsed,
+  collapseText,
   onToggleCollapse,
 }: SideBarProps): JSX.Element => {
   const [internalCollapsed, setInternalCollapsed] = useState(false);
@@ -173,10 +79,10 @@ const SideBar = ({
       </div>
       <footer>
         {!isCollapsed && footer}
-        <div className="flex justify-center items-center border-t-[0.5px] py-4 mt-4">
+        <div className="flex justify-center items-center border-t-[0.5px] mt-4">
           <button
             onClick={toggleSidebar}
-            className="p-2 bg-transparent hover:text-white hover:primary-bg w-full "
+            className="p-2 bg-transparent w-full "
             style={{
               borderRadius: buttonsRadius,
             }}
@@ -188,9 +94,21 @@ const SideBar = ({
             ) : (
               <div className="flex justify-center items-center gap-4 flex-row text-inherit">
                 <Icon name="arrow-left-double" size={20} color="inherit" />
-                <Text size="sm" color="inherit" weight="medium">
-                  Recolher Menu
-                </Text>
+                {collapseText && (
+                  <Text
+                    size="sm"
+                    color="inherit"
+                    weight="medium"
+                    style={{
+                      textAlign: 'center',
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {collapseText}
+                  </Text>
+                )}
               </div>
             )}
           </button>
