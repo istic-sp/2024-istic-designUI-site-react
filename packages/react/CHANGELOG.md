@@ -1,5 +1,11 @@
 # @istic-ui/react
 
+## 2.0.20
+
+### Patch Changes
+
+- Add new paddingNavItem property
+
 ## 2.0.19
 
 ### Patch Changes
