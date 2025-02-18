@@ -27,6 +27,10 @@ const meta: Meta<typeof SideBar> = {
       description: 'Espaçamento interno da barra lateral.',
       control: { type: 'number' },
     },
+    paddingNavItem: {
+      description: 'Espaçamento interno dos itens do menu.',
+      control: { type: 'number' },
+    },
     buttonsRadius: {
       description: 'Raio da borda dos botões do menu.',
       control: { type: 'text' },
@@ -67,6 +71,7 @@ export default meta;
 export const Default: StoryObj = {
   args: {
     padding: 8,
+    paddingNavItem: 8,
     buttonsRadius: '5px',
     width: '250px',
     collapseText: 'Recolher',

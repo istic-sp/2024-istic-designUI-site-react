@@ -12,6 +12,7 @@ interface SideBarProps {
   footer?: ReactNode;
   width?: string | number;
   padding?: string | number;
+  paddingNavItem?: string | number;
   buttonsRadius?: string;
   collapseText?: string;
   isCollapsed?: boolean;
@@ -25,6 +26,7 @@ const SideBar = ({
   activeItem,
   width = '250px',
   padding = '4px',
+  paddingNavItem = '8px',
   buttonsRadius = '5px',
   isCollapsed: controlledCollapsed,
   collapseText,
@@ -69,6 +71,7 @@ const SideBar = ({
           {items.map((item, index) => (
             <SubNav
               radius={buttonsRadius}
+              paddingNavItem={paddingNavItem}
               key={index}
               {...item}
               activeItem={activeItem}
