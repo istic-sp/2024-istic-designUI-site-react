@@ -1,5 +1,53 @@
 # @istic-ui/react
 
+## 2.0.19
+
+### Patch Changes
+
+- Add collapseText property to Sidebar
+
+## 2.0.18
+
+### Patch Changes
+
+- Add transition to Sidebar
+
+## 2.0.17
+
+### Patch Changes
+
+- Improve spacing into Sidebar
+
+## 2.0.16
+
+### Patch Changes
+
+- Improve Sidebar style
+
+## 2.0.15
+
+### Patch Changes
+
+- Improve SideBar collapse style"
+
+## 2.0.14
+
+### Patch Changes
+
+- Rollback in Button isLoading style
+
+## 2.0.13
+
+### Patch Changes
+
+- Add collapse feature to SideBar
+
+## 2.0.12
+
+### Patch Changes
+
+- Adjust Loader in Table, Select, Dropzone and AccordionTable, also adjust Button color when isLoading
+
 ## 2.0.11
 
 ### Patch Changes
