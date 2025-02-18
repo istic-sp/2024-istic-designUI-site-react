@@ -11,22 +11,25 @@ export interface NavItem {
   title: string;
   subItems: NavSubItem[];
   radius?: string;
+  paddingNavItem?: string | number;
 }
-
+type SubNavProps = {
+  subItem: NavSubItem;
+  radius: string;
+  activeItem: string;
+  isCollapsed: boolean;
+  paddingNavItem?: string | number;
+};
 export const NavLink = ({
   subItem,
   activeItem,
   isCollapsed,
   radius,
-}: {
-  subItem: NavSubItem;
-  activeItem: string;
-  isCollapsed: boolean;
-  radius: string;
-}) => {
+  paddingNavItem,
+}: SubNavProps) => {
   const isActive = activeItem === subItem.path;
   const linkClasses = clsx(
-    'flex w-full flex-row items-center gap-x-2 p-2',
+    'flex w-full flex-row items-center gap-x-2',
     'transition-colors duration-150 ease-in-out',
     'hover:text-white hover:primary-bg',
     {
@@ -41,6 +44,7 @@ export const NavLink = ({
       href={subItem.path}
       style={{
         borderRadius: radius,
+        padding: paddingNavItem,
       }}
     >
       <div
@@ -51,7 +55,17 @@ export const NavLink = ({
       >
         {React.cloneElement(subItem.icon, { color: 'inherit' })}
         {!isCollapsed && (
-          <Text size="sm" color="inherit" weight="regular">
+          <Text
+            size="sm"
+            color="inherit"
+            weight="regular"
+            style={{
+              textAlign: 'center',
+              display: 'flex',
+              flexWrap: 'wrap',
+              whiteSpace: 'nowrap',
+            }}
+          >
             {subItem.label}
           </Text>
         )}
