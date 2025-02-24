@@ -36,15 +36,35 @@ yarn add @istic-ui/react
 Você deve mesclar sua configuração do Tailwind com a nossa, pois nossos componentes são baseados nos tokens abaixo:
 
 ```
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-   ...other configs
-   content:{
-    ...other content,
+import type { Config } from 'tailwindcss'
+import { applyButtonClasses, applyPrimaryColorAndShade } from '@istic-ui/react'
+
+const config: Config = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@istic-ui/react/**/*.{js,ts,jsx,tsx,mdx}',
-   },
-   theme: {
+  ],
+  safelist: [
+    {
+      pattern:
+        /^(bg|text|border)-brand-(0|100|200|300|400|500|600|700|800|900|950)$/,
+    },
+    {
+      pattern: /btn-(filled|outline|subtle|light)$/,
+    },
+    {
+      pattern: /rounded-(input|button|search-input)-(xs|sm|md|lg|xl)$/,
+    },
+  ],
+  theme: {
+    primaryShade: 400,
+    primaryColor: 'brand',
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
       colors: {
         white: '#ffffff',
         success: '#12d16e',
@@ -52,32 +72,50 @@ module.exports = {
         info: '#00adf2',
         error: '#fc3932',
 
-        'brand-950': '#0B1B7A',
-        'brand-900': '#0B1B7A',
-        'brand-800': '#132893',
-        'brand-700': '#1F3CB7',
-        'brand-600': '#2D52DB',
-        'brand-500': '#3E6CFF',
-        'brand-400': '#6E94FF',
-        'brand-300': '#8BACFF',
-        'brand-200': '#B1C9FF',
-        'brand-100': '#D8E5FF',
-        'brand-50': '#F4F7FF',
+        muted: '#A0A4A8',
+        brand: {
+          '950': '#300b6a',
+          '900': '#4e169c',
+          '800': '#5e18bf',
+          '700': '#711ee3',
+          '600': '#7f30f7',
+          '500': '#8c52ff',
+          '400': '#a885ff',
+          '300': '#c4b1ff',
+          '200': '#dcd4ff',
+          '100': '#ede8ff',
+          '50': '#f5f2ff',
+        },
 
-        'neutral-950': '#212529',
-        'neutral-900': '#212529',
-        'neutral-800': '#343a40',
-        'neutral-700': '#495057',
-        'neutral-600': '#868e96',
-        'neutral-500': '#adb5bd',
-        'neutral-400': '#ced4da',
-        'neutral-300': '#dee2e6',
-        'neutral-200': '#e9ecef',
-        'neutral-100': '#f1f3f5',
-        'neutral-50': '#f8f9fa',
+        secondary: {
+          '950': '#002f33',
+          '900': '#0d5354',
+          '800': '#0a6365',
+          '700': '#057f80',
+          '600': '#00a8a8',
+          '500': '#04c8c3',
+          '400': '#1de4dd',
+          '300': '#51f7ec',
+          '200': '#90fff3',
+          '100': '#c7fff9',
+          '50': '#effefc',
+        },
+        neutral: {
+          '950': '#212529',
+          '900': '#212529',
+          '800': '#343a40',
+          '700': '#495057',
+          '600': '#868e96',
+          '500': '#adb5bd',
+          '400': '#ced4da',
+          '300': '#dee2e6',
+          '200': '#e9ecef',
+          '100': '#f1f3f5',
+          '50': '#f8f9fa',
+        },
       },
       fontFamily: {
-        default: ['Mulish', 'sans-serif'],
+        default: ['Nunito', 'sans-serif'],
       },
       fontSize: {
         xs: '0.75rem',
@@ -90,76 +128,89 @@ module.exports = {
         'button-md': '1rem',
         'button-lg': '1.125rem',
         'button-xl': '1.25rem',
-        'title-h1': '3rem',
+        'title-h1': '2rem',
         'title-h2': '2.5rem',
         'title-h3': '2rem',
         'title-h4': '1.5rem',
         'title-h5': '1.25rem',
       },
       fontWeight: {
-        regular: 400,
-        medium: 500,
-        bold: 700,
+        regular: '400',
+        medium: '500',
+        bold: '700',
       },
       lineHeight: {
         text: '150%',
         title: '150%',
       },
+      borderRadius: {
+        'input-xs': '5px',
+        'input-lg': '5px',
+
+        'search-input-xs': '5px',
+        'search-input-lg': '5px',
+
+        'button-xs': '5px',
+        'button-sm': '5px',
+        'button-md': '5px',
+        'button-lg': '5px',
+        'button-xl': '5px',
+      },
       keyframes: {
         'fade-in': {
           '0%': {
-            opacity: 0,
+            opacity: '0',
           },
           '100%': {
-            opacity: 0.4,
+            opacity: '0.4',
           },
         },
         'fade-in-left': {
           '0%': {
-            opacity: 0,
+            opacity: '0',
             transform: 'translate3d(-100%, 0, 0)',
           },
           '100%': {
-            opacity: 1,
+            opacity: '1',
             transform: 'translate3d(0, 0, 0)',
           },
         },
         'fade-in-right': {
           '0%': {
-            opacity: 0,
+            opacity: '0',
             transform: 'translate3d(100%, 0, 0)',
           },
           '100%': {
-            opacity: 1,
+            opacity: '1',
             transform: 'translate3d(0, 0, 0)',
           },
         },
         'fade-in-up': {
-          '0%': { opacity: 0, transform: 'translate3d(-50%, 100%, 0)' },
-          '100%': { opacity: 1, transform: 'translate3d(-50%, -50%, 0)' },
+          '0%': { opacity: '0', transform: 'translate3d(-50%, 100%, 0)' },
+          '100%': { opacity: '1', transform: 'translate3d(-50%, -50%, 0)' },
         },
         'fade-out-up': {
-          '0%': { opacity: 1 },
-          '100%': { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0', transform: 'translate3d(0, -100%, 0)' },
         },
         'fade-in-down': {
-          '0%': { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
-          '100%': { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+          '0%': { opacity: '0', transform: 'translate3d(0, -100%, 0)' },
+          '100%': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
         },
         'chip-fade-in': {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
         'chip-scale-right': {
           '0%': {
             transform: 'scaleX(0.6)',
             transformOrigin: '0% 0%',
-            opacity: 1,
+            opacity: '1',
           },
           '100%': {
             transform: 'scaleX(1)',
             transformOrigin: '0% 0%',
-            opacity: 1,
+            opacity: '1',
           },
         },
         'progress-bar': {
@@ -181,9 +232,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-};
-
-
-
+  plugins: [applyButtonClasses, applyPrimaryColorAndShade],
+}
+export default config;
 ```

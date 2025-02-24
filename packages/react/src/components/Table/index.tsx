@@ -6,7 +6,7 @@ import { Pagination, PaginationProps } from './Pagination';
 import { Loader } from '../Loader';
 
 interface TableColumn<T> {
-  index: string;
+  index: keyof T;
   label: string;
   width?: string;
   align?: 'left' | 'center' | 'right';
