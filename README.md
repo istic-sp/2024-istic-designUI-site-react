@@ -94,7 +94,7 @@ Nosso design system inclui uma variedade de componentes que atendem a diferentes
 
 ### Github Actions
 
-Este projeto usa GitHub Actions para CI/CD. O workflow Deploy Docs é acionado em push para a branch main e realizada o deploy do Storybook:
+Este projeto usa GitHub Actions para CI/CD. O workflow Deploy Docs é acionado em push para a branch main e realizada o deploy do Storybook e do pacote no NPM.
 
 ### Secrets
 
@@ -103,6 +103,7 @@ As secrets são variáveis sensíveis que são utilizadas no seu workflow do Git
 TURBO_TOKEN: Token utilizado pelo Turbo para autenticação.
 TURBO_TEAM: Identificador do time no Turbo.
 GITHUB_TOKEN: Token padrão do GitHub Actions para autenticação e autorização.
+NPM_TOKEN: Token de autenticação para publicar pacotes no NPM.
 
 ### Onde Encontrar e Como Configurar as Secrets
 
@@ -113,5 +114,7 @@ Nas configurações do projeto, em "Secrets and variables" -> "Actions"
 TURBO_TOKEN: Deve ser criado um token na [Vercel](https://vercel.com/account/tokens).
 
 TURBO_TEAM: Identificador do time na [Vercel](https://vercel.com/account/tokens).
+
+NPM_TOKEN: Gere um token de autenticação no NPM. [NPM](https://www.npmjs.com/settings/[NPM-USERNAME]/tokens)
 
 Para mais informações acesse [TurboRepo](https://turbo.build/repo/docs/guides/ci-vendors/github-actions)
